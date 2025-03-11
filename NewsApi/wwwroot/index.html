@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News API Test Frontend</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="text-center">News API Test Frontend</h1>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <h2>Register</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerUsername">Username</label>
+                    <input type="text" class="form-control" id="registerUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" class="form-control" id="registerPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerRoleId">Role ID</label>
+                    <input type="number" class="form-control" id="registerRoleId" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+                <div id="registerMessage" class="mt-2"></div>
+            </form>
+        </div>
+        
+        <div class="col-md-6">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginUsername">Username</label>
+                    <input type="text" class="form-control" id="loginUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" class="form-control" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <div id="loginMessage" class="mt-2"></div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row mt-4">
+        <div class="col-md-12 d-flex justify-content-between align-items-center">
+            <h2>News</h2>
+            <div>
+                <button id="fetchNewsBtn" class="btn btn-primary">Get All News</button>
+                <button id="addNewsBtn" class="btn btn-success mr-2">Add News</button>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div id="newsList" class="list-group"></div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="newsModal" tabindex="-1" role="dialog" aria-labelledby="newsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form id="newsForm" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newsModalLabel">Add/Edit News</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="newsId">
+                <div class="form-group">
+                    <label for="newsTitle">Title</label>
+                    <input type="text" class="form-control" id="newsTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="newsContent">Content</label>
+                    <textarea class="form-control" id="newsContent" rows="4" required></textarea>
+                </div>
+                <div id="newsModalMessage" class="text-danger"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary" id="saveNewsBtn">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
